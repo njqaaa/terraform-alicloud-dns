@@ -1,13 +1,12 @@
 variable "record_list" {
   description = "Dns record list"
   type = list(object({
-    name        = string
+    host_record = string
     type        = string
     ttl         = number
     value       = string
     priority    = number
-    host_record = string
-
+    routing     = string
   }))
 }
 

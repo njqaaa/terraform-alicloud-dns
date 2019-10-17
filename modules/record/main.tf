@@ -5,6 +5,6 @@ resource "alicloud_dns_record" "this" {
   ttl         = var.record_list[count.index]["ttl"]
   value       = var.record_list[count.index]["value"]
   priority    = var.record_list[count.index]["priority"]
+  routing     = var.record_list[count.index]["routing"]
   count       = length(var.record_list)
 }
-
