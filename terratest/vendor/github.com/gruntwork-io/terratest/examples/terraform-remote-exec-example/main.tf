@@ -60,10 +60,10 @@ resource "null_resource" "example_provisioner" {
   }
 
   connection {
-    type = "ssh"
-    host = "${aws_instance.example_public.public_ip}"
-    user = "${var.ssh_user}"
-    port = "${var.ssh_port}"
+    type  = "ssh"
+    host  = "${aws_instance.example_public.public_ip}"
+    user  = "${var.ssh_user}"
+    port  = "${var.ssh_port}"
     agent = true
   }
 

@@ -31,16 +31,16 @@ resource "aws_db_subnet_group" "example" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "aws_db_option_group" "example" {
-  name                     = "${var.name}"
-  engine_name              = "${var.engine_name}"
-  major_engine_version     = "${var.major_engine_version}"
+  name                 = "${var.name}"
+  engine_name          = "${var.engine_name}"
+  major_engine_version = "${var.major_engine_version}"
 
   tags {
     Name = "${var.name}"
   }
 
   option {
-    option_name  = "MARIADB_AUDIT_PLUGIN"
+    option_name = "MARIADB_AUDIT_PLUGIN"
 
     option_settings {
       name  = "SERVER_AUDIT_EVENTS"
@@ -50,8 +50,8 @@ resource "aws_db_option_group" "example" {
 }
 
 resource "aws_db_parameter_group" "example" {
-  name        = "${var.name}"
-  family      = "${var.family}"
+  name   = "${var.name}"
+  family = "${var.family}"
 
   tags {
     Name = "${var.name}"
@@ -88,22 +88,22 @@ resource "aws_security_group_rule" "allow_db_access" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "aws_db_instance" "example" {
-  identifier              = "${var.name}"
-  engine                  = "${var.engine_name}"
-  engine_version          = "${var.engine_version}"
-  port                    = "${var.port}"
-  name                    = "${var.database_name}"
-  username                = "${var.username}"
-  password                = "${var.password}"
-  instance_class          = "db.t2.micro"
-  allocated_storage       = "${var.allocated_storage}"
-  skip_final_snapshot     = true
-  license_model           = "${var.license_model}"
-  db_subnet_group_name    = "${aws_db_subnet_group.example.id}"
-  vpc_security_group_ids  = ["${aws_security_group.db_instance.id}"]
-  publicly_accessible     = true
-  parameter_group_name    = "${aws_db_parameter_group.example.id}"
-  option_group_name       = "${aws_db_option_group.example.id}"
+  identifier             = "${var.name}"
+  engine                 = "${var.engine_name}"
+  engine_version         = "${var.engine_version}"
+  port                   = "${var.port}"
+  name                   = "${var.database_name}"
+  username               = "${var.username}"
+  password               = "${var.password}"
+  instance_class         = "db.t2.micro"
+  allocated_storage      = "${var.allocated_storage}"
+  skip_final_snapshot    = true
+  license_model          = "${var.license_model}"
+  db_subnet_group_name   = "${aws_db_subnet_group.example.id}"
+  vpc_security_group_ids = ["${aws_security_group.db_instance.id}"]
+  publicly_accessible    = true
+  parameter_group_name   = "${aws_db_parameter_group.example.id}"
+  option_group_name      = "${aws_db_option_group.example.id}"
 
   tags {
     Name = "${var.name}"

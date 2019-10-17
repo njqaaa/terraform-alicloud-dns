@@ -18,10 +18,10 @@
 
 variable "cluster_name" {
   description = "The name to set for the ECS cluster."
-  default = "terratest-example"
+  default     = "terratest-example"
 }
 
 variable "service_name" {
   description = "The name to set for the ECS service."
-  default = "terratest-example"
+  default     = "terratest-example"
 }
